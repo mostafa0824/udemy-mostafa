@@ -5,6 +5,7 @@ const useFormFilds=(initialState={})=>{
     const handleChange=(e)=>{
         setFilds({...filds,[e.target.name]:e.target.value})
     }
-    return [filds,handleChange]
+    const resetFilds=()=> setFilds(initialState)
+    return [filds,handleChange,resetFilds]
 }
 export default useFormFilds
