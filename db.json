@@ -49,10 +49,11 @@
       "category": "Emily Davis"
     },
     {
+
       "actual_price_usd": 7,
       "name": "UI/UX Design Principles",
       "image": "/assets/7.jpg",
-      "description": "Creating user-centered designs for better experiences",
+      "description": "Creating user centered designs for better experiences",
       "sale_end": "2024-03-18",
       "category": "Chris Taylor"
     },
