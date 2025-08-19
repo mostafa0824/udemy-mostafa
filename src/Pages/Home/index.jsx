@@ -9,40 +9,40 @@ import HomeCart from "./HomeCart";
 export default function Home() {
   const [items, setItems] = useState();
 
-  // useEffect(() => {
-  //   (async () => {
-  //     try {
-  //       const res = await fetch(
-  //         "https://udemy-paid-courses-for-free-api.p.rapidapi.com/rapidapi/courses/?page=1&page_size=10",
-  //         {
-  //           method: "GET",
-  //           headers: {
-  //             "x-rapidapi-key": "6a24580a91mshdc377f9df90d403p170d1fjsnf0f5e7c52d97",
-  //             "x-rapidapi-host": "udemy-paid-courses-for-free-api.p.rapidapi.com",
-  //           },
-  //         }
-  //       );
-  //       const item = await res.json();
-  //       setItems(item.courses);
-  //     } catch (error) {
-  //       console.log(error);
-  //       Notify("error", "Failed to load courses");
-  //     }
-  //   })();
-  // }, []);
+  useEffect(() => {
+    (async () => {
+      try {
+        const res = await fetch(
+          "https://udemy-paid-courses-for-free-api.p.rapidapi.com/rapidapi/courses/?page=1&page_size=10",
+          {
+            method: "GET",
+            headers: {
+              "x-rapidapi-key": "6a24580a91mshdc377f9df90d403p170d1fjsnf0f5e7c52d97",
+              "x-rapidapi-host": "udemy-paid-courses-for-free-api.p.rapidapi.com",
+            },
+          }
+        );
+        const item = await res.json();
+        setItems(item.courses);
+      } catch (error) {
+        console.log(error);
+        Notify("error", "Failed to load courses");
+      }
+    })();
+  }, []);
 
-    useEffect(() => {
-      (async () => {
-        try {
-          const res = await fetch("http://localhost:3000/courses");
-          const data = await res.json();
-          setItems(data);
-          console.log(data)
-        } catch (error) {
-          console.log(error);
-        }
-      })();
-    }, []);
+    // useEffect(() => {
+    //   (async () => {
+    //     try {
+    //       const res = await fetch("http://localhost:3000/courses");
+    //       const data = await res.json();
+    //       setItems(data);
+    //       console.log(data)
+    //     } catch (error) {
+    //       console.log(error);
+    //     }
+    //   })();
+    // }, []);
 
    const itemsHome=items?.map((item,index)=>(<HomeCart key={index} id={index} name={item?.name} image={item?.image} price={item?.['actual_price_usd']} category={item?.category} description={item?.description} saleEnd={item?.['sale_end']} itemsHome={items}/>))
   

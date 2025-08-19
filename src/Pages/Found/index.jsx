@@ -10,35 +10,35 @@ export default function Found() {
   const [loadingEl,setLoadingEl]=useState(true)
   const navigate=useNavigate()
 
-  //  useEffect(() => {
-  //   setLoadingEl(true)
-  //   if (!prodoct) {
-  //     setData([]);
-  //     return;
-  //   }
+   useEffect(() => {
+    setLoadingEl(true)
+    if (!prodoct) {
+      setData([]);
+      return;
+    }
 
-  //   (async () => {
-  //     try {
-  //       const rec = await fetch(
-  //          `https://udemy-paid-courses-for-free-api.p.rapidapi.com/rapidapi/courses/search?page=1&page_size=10&query=${prodoct}`,
-  //         {
-  //           method: "GET",
-  //           headers: {
-	// 	'x-rapidapi-key': '6a24580a91mshdc377f9df90d403p170d1fjsnf0f5e7c52d97',
-	// 	'x-rapidapi-host': 'udemy-paid-courses-for-free-api.p.rapidapi.com'
-  //   }
-  //     });
-  //       const dataEl = await rec.json();
-  //       setData(dataEl.courses);
-  //          if(dataEl){
-  //           setLoadingEl(false)
-  //          }
-  //     } catch (error) {
-  //       console.log("Failed to fetch data", error);
-  //       setData([]);
-  //     }
-  //   })();
-  // }, [prodoct]);
+    (async () => {
+      try {
+        const rec = await fetch(
+           `https://udemy-paid-courses-for-free-api.p.rapidapi.com/rapidapi/courses/search?page=1&page_size=10&query=${prodoct}`,
+          {
+            method: "GET",
+            headers: {
+		'x-rapidapi-key': '6a24580a91mshdc377f9df90d403p170d1fjsnf0f5e7c52d97',
+		'x-rapidapi-host': 'udemy-paid-courses-for-free-api.p.rapidapi.com'
+    }
+      });
+        const dataEl = await rec.json();
+        setData(dataEl.courses);
+           if(dataEl){
+            setLoadingEl(false)
+           }
+      } catch (error) {
+        console.log("Failed to fetch data", error);
+        setData([]);
+      }
+    })();
+  }, [prodoct]);
 if(loadingEl) return <Loading/> 
 
   return (
